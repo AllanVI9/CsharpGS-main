@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace FutureWork.API.Models
 {
@@ -12,9 +13,11 @@ namespace FutureWork.API.Models
 
         // Chaves estrangeiras
         public int ProfissionalId { get; set; }
-        public Profissional Profissional { get; set; } = null!;
+        [JsonIgnore]
+        public Profissional? Profissional { get; set; } = null!;
 
         public int VagaId { get; set; }
-        public Vaga Vaga { get; set; } = null!;
+        [JsonIgnore]
+        public Vaga? Vaga { get; set; } = null!;
     }
 }
